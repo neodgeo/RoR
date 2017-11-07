@@ -1,0 +1,13 @@
+<%= form_with(model: [ @article, @article.comments.build ], html: {class: "form-horizontal"}) do |form| %>
+    <div class="form-group">
+      <%= form.label :commenter %><br>
+      <%= form.text_field :commenter, class:'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= form.label :body %><br>
+      <%= form.text_area :body, {class:'form-control'} %>
+    </div>
+    <div class="form-group">
+      <%= form.submit class: 'btn btn-primary' %>
+    </div>
+<% end %>

@@ -1,0 +1,29 @@
+<h1>Listing Article</h1>
+
+<%= will_paginate @articles %>
+<%= link_to "Write an article",
+            {controller: "articles", action: "new"},
+            class: "btn btn-success" %>
+
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'show', article_path(article), class: "btn btn-info" %></td>
+      <td><%= link_to 'edit', edit_article_path(article), class: "btn btn-warning"  %></td>
+      <td><%= link_to 'Destroy', article_path(article),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' },
+                      class: "btn btn-danger" %></td>
+  <% end %>
+
+</table>
+
+<%= will_paginate @articles %>

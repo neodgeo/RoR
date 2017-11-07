@@ -1,0 +1,15 @@
+<h1>Listing Article</h1>
+
+  <%= will_paginate @articles %>
+  <% @articles.each do |article| %>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <%= link_to (article_path(article)) do %>
+            <h2><%= article.title %></h2>
+        <% end %>
+        <%= article.text.truncate(150, separator: ' ', omission:'...') %>
+        <%= link_to 'Read more', article_path(article) %>
+      </div>
+    </div>
+  <% end %>
+<%= will_paginate @articles %>
